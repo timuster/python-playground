@@ -5,7 +5,6 @@
     Details : To run this test script, comment out the last line in chocolateDivider.py, so that its function-driver is disabled.
 
     To Run : python ./chocolateDivider_test.py
-             (Comment out last line in chocolateDivider.py first.)
 
     Notes : Add your own sets of inputs below to test.
 """

@@ -217,4 +217,5 @@ def chocolate_divider():
 
 
 # Call the driver function.
-chocolate_divider() # Comment this line if you want to run chocolateDivider_test.py without user input.
+if __name__ == '__main__':
+    chocolate_divider()
