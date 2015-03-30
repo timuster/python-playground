@@ -83,7 +83,15 @@ inputList = [
     [
         10, # Rows
         7, # Columns
-        [42,28], # Test to ensure that a large piece was not wrongly handled.
+        [42,28], # Test to ensure that a large piece is not wrongly handled.
+        True # Expected answer
+    ],
+
+    # Test 10
+    [
+        2, # Rows
+        2, # Columns
+        [4], # Test to ensure that a single piece is not wrongly handled.
         True # Expected answer
     ],
 

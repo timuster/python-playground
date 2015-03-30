@@ -159,6 +159,10 @@ def checkForValidDivision(numRows,numColumns,sizesArray):
     if sum(sizesArray) != (numRows*numColumns):
         return False # Don't proceed, and just return False.
 
+    # Check if it's a single piece (full-chocolate as a piece).
+    if len(sizesArray) == 1:
+        return True
+
     # Set some flags
     firstCheck = True
     secondCheck = False
