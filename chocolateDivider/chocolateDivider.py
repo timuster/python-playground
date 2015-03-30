@@ -83,7 +83,7 @@ def get_user_input():
     try:
 
         ########## Get first input ##########
-        customPrintForVerbose("Enter number of parts - You may enter 0 to show output.")
+        customPrintForVerbose("Enter number of parts (1 to 15) - You may enter 0 to show output.")
         numberOfParts = int(input(''))
 
         if numberOfParts == 0:
@@ -99,7 +99,7 @@ def get_user_input():
             raise Exception
 
         ########## Get second input ##########
-        customPrintForVerbose("Enter the dimensions of the chocolate bar: ")
+        customPrintForVerbose("Enter the dimensions of the chocolate bar (2 numbers - 1 to 100) : ")
         inputRaw = input("").split()
 
         if len(inputRaw) < 2:
