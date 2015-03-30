@@ -155,37 +155,48 @@ def checkForValidDivision(numRows,numColumns,sizesArray):
         :param sizesArray: List of
         :return: True, if valid. False, if invalid.
     """
-    returnValue = True
-    minimumOneNotTooBig = False # Bool to ensure at least one size is small enough to accommodate all pieces.
-
     # First, check if the sum of pieces equals the dimensions.
     if sum(sizesArray) != (numRows*numColumns):
         return False # Don't proceed, and just return False.
 
+    # Set some flags
+    firstCheck = True
+    secondCheck = False
+    secondCheck_case1 = True
+    secondCheck_case2 = False
+
+    # Set larger / smaller of two dimensions.
+    larger = numRows
+    smaller = numColumns
+    if numColumns > numRows:
+        larger = numColumns
+        smaller = numRows
+
+    # Start checking each individual piece to see if it's valid.
     for numPiece in sizesArray:
 
         if (numPiece > numRows) and (numPiece > numColumns) :
 
-            returnValue = False
+            firstCheck = False
 
-            larger = numRows
-            smaller = numColumns
-
-            if numColumns > numRows:
-                larger = numColumns
-                smaller = numRows
+            if numPiece % larger == 0 or numPiece % smaller == 0:
+                secondCheck_case1 = secondCheck_case1 and True
+            else:
+                secondCheck_case1 = secondCheck_case1 and False
 
             for n in range(larger,0,-1):
                 if (numPiece % n) == 0:
                     if (numPiece / n) < smaller:
-                        returnValue = True
+                        firstCheck = True
                         break
 
         else:
-            minimumOneNotTooBig = True
+            secondCheck_case2 = True
             continue
 
-    return (returnValue and minimumOneNotTooBig)
+    secondCheck = secondCheck_case1 or secondCheck_case2
+
+    return firstCheck and secondCheck
 
 
 def chocolate_divider():
